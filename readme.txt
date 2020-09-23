@@ -3,7 +3,7 @@ Contributors: Notify.Events
 Tags: woocommerce, contact form 7, wpforms, sms, voicecall, facebook messenger, vk, telegram, viber, slack
 Requires at least: 5.3
 Tested up to: 5.5
-Stable tag: 1.0.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
