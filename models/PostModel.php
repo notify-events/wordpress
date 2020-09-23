@@ -147,7 +147,10 @@ abstract class PostModel extends Model implements PostModelInterface
 
                     $data[$field] = $post->$post_field;
                 } elseif (array_key_exists('_wpne_' . $field, $meta)) {
-                    $data[$field] = array_shift($meta['_wpne_' . $field]);
+                    $value = $meta['_wpne_' . $field][0];
+                    $value = maybe_unserialize($value);
+
+                    $data[$field] = $value;
                 }
             }
         }

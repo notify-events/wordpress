@@ -83,8 +83,10 @@ abstract class Event extends PostModel implements EventInterface
             ],
             'channel_id' => [
                 ['required'],
-                ['int'],
-                ['exists', 'model' => Channel::class],
+                ['each', 'rules' => [
+                    ['int'],
+                    ['exists', 'model' => Channel::class],
+                ]],
             ],
             'subject' => [
                 ['required'],
@@ -165,7 +167,10 @@ abstract class Event extends PostModel implements EventInterface
             $priority = $event->priority;
 
             $msg = new Message($message, $subject, $priority);
-            $msg->send($event->get_channel()->token);
+
+            foreach ($event->get_channels() as $channel) {
+                $msg->send($channel->token);
+            }
         }
     }
 
@@ -242,11 +247,11 @@ abstract class Event extends PostModel implements EventInterface
     }
 
     /**
-     * @return Channel|null
+     * @return Channel[]
      */
-    public function get_channel()
+    public function get_channels()
     {
-        return Channel::findOne($this->channel_id, false);
+        return Channel::find(['post__in' => (array)$this->channel_id]);
     }
 
     /**

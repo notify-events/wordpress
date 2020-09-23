@@ -5,6 +5,7 @@
  * @var string $plugin_woo
  * @var string $plugin_cf7
  * @var string $plugin_wpf
+ * @var string $plugin_njf
  */
 
 use notify_events\models\View;
@@ -52,8 +53,8 @@ use notify_events\models\View;
         <li><?= __('Go to the Events tab and add an event', WPNE) ?></li>
         <li><?= __('Fill the inputs and save settings. Done!', WPNE) ?></li>
     </ol>
-<!--
-    <h3>
+
+    <!--<h3>
         <?= __('Add-on', WPNE) ?>
     </h3>
 
@@ -95,6 +96,17 @@ use notify_events\models\View;
                 <?= __('Plugin for notification from WPForms', WPNE) ?>
             </td>
         </tr>
-    </table>
--->
+        <tr>
+            <th>
+                <strong><a href="https://wordpress.org/plugins/notify-events-ninja-forms" target="_blank">Ninja Forms</a></strong>
+            </th>
+            <td>
+                <?= $plugin_njf ?>
+            </td>
+            <td>
+                <?= __('Plugin for notification from Ninja Forms', WPNE) ?>
+            </td>
+        </tr>
+    </table>-->
+
 </div>

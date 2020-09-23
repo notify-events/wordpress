@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Notify.Events - Ultimate notification
+Plugin Name: Notify.Events
 Plugin URI: https://notify.events
 Description: Notify.Events plugin is ultimate tool for any kind of notifications from your WordPress website to more than 20 messengers and platfroms such as SMS, voicecall, Facebook messenger, Viber, Telegram and many more
 Author: Notify.Events

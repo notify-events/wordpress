@@ -50,11 +50,13 @@ class AboutController extends Controller
         $plugin_woo = self::plugin_badge('woocommerce/woocommerce.php', 'notify-events-woocommerce/notify-events-woocommerce.php');
         $plugin_cf7 = self::plugin_badge('contact-form-7/wp-contact-form-7.php', 'notify-events-contact-form-7/notify-events-contact-form-7.php');
         $plugin_wpf = self::plugin_badge(['wpforms-lite/wpforms.php', 'wpforms/wpforms.php'], 'notify-events-wpforms/notify-events-wpforms.php');
+        $plugin_njf = self::plugin_badge('ninja-forms/ninja-forms.php', 'notify-events-ninja-forms/notify-events-ninja-forms.php');
 
         return $this->render('index', [
             'plugin_woo' => $plugin_woo,
             'plugin_cf7' => $plugin_cf7,
             'plugin_wpf' => $plugin_wpf,
+            'plugin_njf' => $plugin_njf,
         ]);
     }
 }

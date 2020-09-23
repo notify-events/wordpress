@@ -52,7 +52,7 @@ abstract class Model implements ModelInterface
             }
 
             if (array_key_exists($field, $data['form'])) {
-                $this->$field = $data['form'][$field];
+                $this->$field = wp_unslash($data['form'][$field]);
             } else {
                 $this->$field = null;
             }
@@ -75,17 +75,29 @@ abstract class Model implements ModelInterface
                 $rule_name   = array_shift($rule);
                 $rule_params = $rule;
 
-                if (method_exists($this, 'rule_' . $rule_name)) {
-                    $this->$field = call_user_func([$this, 'rule_' . $rule_name], $field, $this->$field, $rule_params);
-                } elseif (function_exists($rule_name)) {
-                    $this->$field = call_user_func_array($rule_name, array_merge([$this->$field], $rule_params));
-                } else {
-                    wp_die(sprintf(__('Invalid rule %s', WPNE), $rule_name));
-                }
+                $this->$field = $this->validate_rule($rule_name, $field, $this->$field, $rule_params);
             }
         }
 
         return empty($this->_errors);
+    }
+
+    /**
+     * @param string $rule_name
+     * @param string $field
+     * @param mixed  $value
+     * @param array  $rule_params
+     * @return mixed
+     */
+    protected function validate_rule($rule_name, $field, $value, $rule_params)
+    {
+        if (method_exists($this, 'rule_' . $rule_name)) {
+            return call_user_func([$this, 'rule_' . $rule_name], $field, $value, $rule_params);
+        } elseif (function_exists($rule_name)) {
+            return call_user_func_array($rule_name, array_merge([$value], $rule_params));
+        } else {
+            wp_die(sprintf(__('Invalid rule %s', WPNE), $rule_name));
+        }
     }
 
     /**
@@ -288,9 +300,9 @@ abstract class Model implements ModelInterface
      */
     protected function rule_in($attribute, $value, $params)
     {
-        $range = $params['range'];
+        $range = (array)$params['range'];
 
-        if (!in_array($value, (array)$range)) {
+        if (!in_array($value, $range)) {
             $message = array_key_exists('message', $params) ? $params['message'] : __('Invalid value', WPNE);
 
             $this->add_error($attribute, $message);
@@ -316,6 +328,34 @@ abstract class Model implements ModelInterface
             $message = array_key_exists('message', $params) ? $params['message'] : __('Invalid value', WPNE);
 
             $this->add_error($attribute, $message);
+        }
+
+        return $value;
+    }
+
+    /**
+     * @param string $attribute
+     * @param mixed  $value
+     * @param array  $params
+     * @return mixed
+     */
+    protected function rule_each($attribute, $value, array $params)
+    {
+        if (!is_array($value)) {
+            $message = array_key_exists('message', $params) ? $params['message'] : __('Value must be array', WPNE);
+
+            $this->add_error($attribute, $message);
+        } else {
+            $rules = (array)$params['rules'];
+
+            foreach ($value as $idx => $val) {
+                foreach ($rules as $rule) {
+                    $rule_name   = array_shift($rule);
+                    $rule_params = $rule;
+
+                    $value[$idx] = $this->validate_rule($rule_name, $attribute, $val, $rule_params);
+                }
+            }
         }
 
         return $value;

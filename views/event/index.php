@@ -18,7 +18,7 @@ use notify_events\models\View;
     .column-enabled {
         width: 10%;
     }
-    .column-channel,
+    .column-channels,
     .column-priority {
         width: 15%;
     }

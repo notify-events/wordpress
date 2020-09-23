@@ -38,7 +38,7 @@ class EventList extends WP_List_Table
         return [
             'enabled'  => __('Enabled', WPNE),
             'title'    => __('Title', WPNE),
-            'channel'  => __('Channel', WPNE),
+            'channels' => __('Channels', WPNE),
             'priority' => __('Priority', WPNE),
         ];
     }
@@ -161,9 +161,15 @@ class EventList extends WP_List_Table
      * @param Event $event
      * @return string
      */
-    public function column_channel($event)
+    public function column_channels($event)
     {
-        return esc_html($event->get_channel()->title);
+        $result = [];
+
+        foreach ($event->get_channels() as $channel) {
+            $result[] = esc_html($channel->title);
+        }
+
+        return implode('<br>', $result);
     }
 
     /**
