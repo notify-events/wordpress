@@ -6,8 +6,8 @@ if (!class_exists( 'WP_List_Table')) {
     require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
 }
 
-use notify_events\helpers\Html;
 use notify_events\helpers\Badge;
+use notify_events\helpers\Html;
 use WP_List_Table;
 
 /**

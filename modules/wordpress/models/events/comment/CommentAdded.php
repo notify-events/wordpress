@@ -3,12 +3,12 @@
 namespace notify_events\modules\wordpress\models\events\comment;
 
 use ErrorException;
-use notify_events\tags\Comment;
-use notify_events\tags\CommentAuthor;
-use notify_events\tags\Common;
-use notify_events\tags\Post;
-use notify_events\tags\User;
 use notify_events\modules\wordpress\models\Event;
+use notify_events\modules\wordpress\tags\Comment;
+use notify_events\modules\wordpress\tags\CommentAuthor;
+use notify_events\modules\wordpress\tags\Common;
+use notify_events\modules\wordpress\tags\Post;
+use notify_events\modules\wordpress\tags\User;
 use WP_Comment;
 
 /**

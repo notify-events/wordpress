@@ -3,9 +3,9 @@
 namespace notify_events\modules\wordpress\models\events\user;
 
 use ErrorException;
-use notify_events\tags\Common;
-use notify_events\tags\User;
 use notify_events\modules\wordpress\models\Event;
+use notify_events\modules\wordpress\tags\Common;
+use notify_events\modules\wordpress\tags\User;
 use WP_User;
 
 /**

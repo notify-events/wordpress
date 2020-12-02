@@ -159,7 +159,7 @@ abstract class Model implements ModelInterface
         $fields = $this->fields();
 
         if (!in_array($attribute, $fields)) {
-            wp_die('Get invalid field');
+            wp_die('Get invalid field: ' . $attribute);
         }
 
         if (!array_key_exists($attribute, $this->_attributes)) {
@@ -178,7 +178,7 @@ abstract class Model implements ModelInterface
         $fields = $this->fields();
 
         if (!in_array($attribute, $fields)) {
-            wp_die('Get invalid field');
+            wp_die('Get invalid field: . ' . $attribute);
         }
 
         $this->_attributes[$attribute] = $value;

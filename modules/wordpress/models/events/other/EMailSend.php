@@ -3,9 +3,9 @@
 namespace notify_events\modules\wordpress\models\events\other;
 
 use ErrorException;
-use notify_events\tags\Common;
-use notify_events\tags\EMail;
 use notify_events\modules\wordpress\models\Event;
+use notify_events\modules\wordpress\tags\Common;
+use notify_events\modules\wordpress\tags\EMail;
 
 /**
  * Class EMailSend

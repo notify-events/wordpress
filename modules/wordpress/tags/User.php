@@ -1,12 +1,12 @@
 <?php
 
-namespace notify_events\tags;
+namespace notify_events\modules\wordpress\tags;
 
 use WP_User;
 
 /**
  * Class User
- * @package notify_events\tags
+ * @package notify_events\modules\wordpress\tags
  */
 class User
 {

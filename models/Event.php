@@ -4,7 +4,7 @@ namespace notify_events\models;
 
 use ErrorException;
 use notify_events\helpers\Badge;
-use notify_events\tags\Common;
+use notify_events\modules\wordpress\tags\Common;
 use notify_events\php\Message;
 use WP_Post;
 
@@ -121,7 +121,7 @@ abstract class Event extends PostModel implements EventInterface
      * @param WP_Post $post
      * @return static
      */
-    protected static function instantiate($post)
+    public static function instantiate($post)
     {
         $event_class = get_post_meta($post->ID, '_wpne_event_class', true);
 
@@ -154,6 +154,8 @@ abstract class Event extends PostModel implements EventInterface
 
         $args = array_merge_recursive($defaults, $args);
 
+        file_put_contents('wc_search.json', json_encode($args, 320) . PHP_EOL . PHP_EOL, FILE_APPEND);
+
         $events = parent::find($args);
 
         foreach ($events as $event) {
@@ -176,7 +178,7 @@ abstract class Event extends PostModel implements EventInterface
 
     /**
      * Event constructor.
-     * @param WP_Post/null $post
+     * @param WP_Post|null $post
      */
     public function __construct($post = null)
     {

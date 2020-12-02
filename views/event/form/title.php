@@ -5,7 +5,6 @@
  * @var Event $event
  */
 
-use notify_events\models\Core;
 use notify_events\models\Event;
 use notify_events\models\View;
 

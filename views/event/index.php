@@ -23,7 +23,8 @@ use notify_events\models\View;
         width: 15%;
     }
     .module-list h3 {
-        margin-bottom: 4px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #23282d;
     }
     .group-list h4 {
         margin: 2px 0;
@@ -33,7 +34,7 @@ use notify_events\models\View;
         flex-wrap: wrap;
     }
     .event-list .button {
-        width: 45%;
+        width: 30%;
         margin: 2px;
     }
 </style>
@@ -44,7 +45,7 @@ use notify_events\models\View;
 
     <?php $events->display() ?>
 
-    <div id="wpne-event-create" class="wpne-modal-form" data-title="<?= esc_attr(__('Select event type', WPNE)) ?>" data-width="350" data-height="400">
+    <div id="wpne-event-create" class="wpne-modal-form" data-title="<?= esc_attr(__('Select event type', WPNE)) ?>" data-width="500" data-height="400">
         <div class="module-list">
             <?php foreach ($modules as $module) { ?>
                 <div>
