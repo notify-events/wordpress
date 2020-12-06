@@ -5,7 +5,7 @@ Plugin URI: https://notify.events/en/source/wordpress
 Description: Notify.Events plugin is ultimate tool for any kind of notifications from your WordPress website to more than 20 messengers and platfroms such as SMS, voicecall, Facebook messenger, Viber, Telegram and many more
 Author: Notify.Events
 Author URI: https://notify.events/
-Version: 2.0.0
+Version: 1.2.0
 License: GPL-2.0
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: notify-events

@@ -29,7 +29,7 @@ use notify_events\models\View;
                     <div class="wpne-error"><?= esc_html($channel->get_error('token')) ?></div>
                 <?php } ?>
                 <p class="description">
-                    <?= __('You can acquire a token by adding Wordpress source in your channel on <a href="https://notify.events/en"">Notify.Events</a> website.', WPNE) ?>
+                    <?= __('You can acquire a token by adding Wordpress source in your channel on <a href="https://notify.events/source/wordpress" target="_blank">Notify.Events</a> website.', WPNE) ?>
                 </p>
             </td>
         </tr>
