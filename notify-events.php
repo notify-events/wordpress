@@ -35,10 +35,6 @@ spl_autoload_register(function($class) {
     require_once $class_file;
 });
 
-add_action('user_register', function($user_id) {
-    error_log('=== Register: ' . $user_id . ' ===');
-}, 10, 1);
-
 Core::instance();
 
 add_action('wpne_module_init', function() {
