@@ -154,8 +154,6 @@ abstract class Event extends PostModel implements EventInterface
 
         $args = array_merge_recursive($defaults, $args);
 
-        file_put_contents('wc_search.json', json_encode($args, 320) . PHP_EOL . PHP_EOL, FILE_APPEND);
-
         $events = parent::find($args);
 
         foreach ($events as $event) {

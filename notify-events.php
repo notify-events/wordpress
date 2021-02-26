@@ -5,7 +5,7 @@ Plugin URI: https://notify.events/en/source/wordpress
 Description: Notify.Events plugin is ultimate tool for any kind of notifications from your WordPress website to more than 20 messengers and platfroms such as SMS, voicecall, Facebook messenger, Viber, Telegram and many more
 Author: Notify.Events
 Author URI: https://notify.events/
-Version: 1.2.0
+Version: 1.2.1
 License: GPL-2.0
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: notify-events
@@ -40,19 +40,19 @@ Core::instance();
 add_action('wpne_module_init', function() {
     WordPress::register();
 
-    if (is_plugin_active('woocommerce/woocommerce.php')) {
+    if (Core::is_plugin_active('woocommerce/woocommerce.php')) {
         WooCommerce::register();
     }
 
-    if (is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
+    if (Core::is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
         ContactForm7::register();
     }
 
-    if (is_plugin_active('wpforms-lite/wpforms.php') || is_plugin_active('wpforms/wpforms.php')) {
+    if (Core::is_plugin_active('wpforms-lite/wpforms.php') || Core::is_plugin_active('wpforms/wpforms.php')) {
         WPForms::register();
     }
 
-    if (is_plugin_active('ninja-forms/ninja-forms.php')) {
+    if (Core::is_plugin_active('ninja-forms/ninja-forms.php')) {
         NinjaForms::register();
     }
 });

@@ -4,7 +4,7 @@ Tags: notification, woocommerce, contact form 7, wpforms, ninja forms, sms, voic
 Requires at least: 5.3
 Requires PHP: 5.6
 Tested up to: 5.5
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,9 @@ Set up your channel to receive notifications during business hours.
 The [Notify.Events](https://notify.events) service has a **free tariff**, which is enough to fully use the service with a small number of messages sent per month. For more information about tariff plans and limits, please visit [Pricing](https://notify.events/pricing) section.
 
 == Changelog ==
+
+= 1.2.1 =
+Bugfixes.
 
 = 1.2.0 =
 Adding support for WooCommerce, Contact Form 7, WPForms and Ninja Forms plugins.

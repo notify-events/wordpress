@@ -62,11 +62,25 @@ class Core
     }
 
     /**
+     * @param string $plugin
+     * @return boolean
+     */
+    public static function is_plugin_active($plugin)
+    {
+        if (!function_exists('is_plugin_active')) {
+            include_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+
+        return is_plugin_active( $plugin );
+    }
+
+    /**
      * @param array $links
      * @param string $file
      * @return array
      */
-    public function plugin_action_links($links, $file) {
+    public function plugin_action_links($links, $file)
+    {
         if ($file == 'notify-events/notify-events.php') {
             $settings_link = Html::a(__('Settings', WPNE), 'options-general.php?page=notify-events');
 
