@@ -20,7 +20,7 @@ class PostPending extends Event
      */
     public static function event_title()
     {
-        return __('Post sent for Review', WPNE);
+        return __('Post Sent for Review', WPNE);
     }
 
     public static function register()

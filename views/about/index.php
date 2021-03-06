@@ -12,11 +12,11 @@ use notify_events\models\View;
 <div id="notify-events-about">
 
     <h2>
-        <?= __('Start getting notification experience for WordPress with <a href="https://notify.events/" target="_blank">Notify.Events</a>', WPNE) ?>
+        <?= __('Start getting WordPress notifications in a convenient way with <a href="https://notify.events/" target="_blank">Notify.Events</a>', WPNE) ?>
     </h2>
 
     <p>
-        <?= __('Notify.Events plugin is ultimate tool for any kind of notifications from your WordPress website to more than 20 messengers and platfroms such as SMS, VoiceCall, Facebook Messenger, Viber, Telegram and many more.', WPNE) ?>
+        <?= __('Notify.Events plugin is the ultimate tool for receiving notifications from your WordPress website to 30+ messenger apps and platforms: SMS, VoiceCall, Facebook Messenger, Viber, Telegram and many more.', WPNE) ?>
     </p>
 
     <h3>
@@ -24,7 +24,10 @@ use notify_events\models\View;
     </h3>
 
     <p>
-        <?= __('Add channel where you would like to receive your notification.', WPNE) ?>
+        <?= __('Add the channel that you want to be notified to.', WPNE) ?><br>
+        <i>
+            <?= __('Requires preliminary configuration in the Notify.Events account.', WPNE) ?>
+        </i>
     </p>
 
     <h3>
@@ -32,7 +35,7 @@ use notify_events\models\View;
     </h3>
 
     <p>
-        <?= __('Add event which you want to be notified, new comment in blog, new order or submitted contact form, for example.', WPNE) ?>
+        <?= __('Add the events that you want to be notified about: new comment in the blog, new order, submitted contact form, and more', WPNE) ?>
     </p>
 
     <h3>
@@ -40,22 +43,22 @@ use notify_events\models\View;
     </h3>
 
     <p>
-        <?= __('Notify.Events service configuration:', WPNE) ?>
+        <?= __('Step 1. Notify.Events service configuration:', WPNE) ?>
     </p>
     <ol>
-        <li><?= __('Sign up on a website <a href="https://notify.events/" target="_blank">Notify.Events</a>', WPNE) ?></li>
-        <li><?= __('Create a channel', WPNE) ?></li>
-        <li><?= __('Subscribe to the channel with your favorite messenger', WPNE) ?></li>
-        <li><?= __('Add "<a href="https://notify.events/source/wordpress" target="_blank">WordPress</a>" source to your channel and copy token', WPNE) ?></li>
+        <li><?= __('Sign up for Notify.Events on the <a href="https://notify.events/" target="_blank">official website</a>.', WPNE) ?></li>
+        <li><?= __('Create a channel.', WPNE) ?></li>
+        <li><?= __('Subscribe to the channel with your favorite instant messenger or choose another way to receive notifications.', WPNE) ?></li>
+        <li><?= __('Add "<a href="https://notify.events/source/wordpress" target="_blank">WordPress</a>" source to your channel and copy the generated token.', WPNE) ?></li>
     </ol>
 
     <p>
-        <?= __('WordPress configuration:', WPNE) ?>
+        <?= __('Step 2. WordPress configuration:', WPNE) ?>
     </p>
     <ol>
-        <li><?= sprintf(__('Go to the "<a href="%s">Channels</a>" tab, create new channel and put a token', WPNE), Url::to(['controller' => 'channel'])) ?></li>
-        <li><?= sprintf(__('Go to the "<a href="%s">Events</a>" tab and add an event', WPNE), Url::to(['controller' => 'event'])) ?></li>
-        <li><?= __('Define event properties and submit form. Done!', WPNE) ?></li>
+        <li><?= sprintf(__('Go to the "<a href="%s">Channels</a>" tab, create a new channel and paste the copied token.', WPNE), Url::to(['controller' => 'channel'])) ?></li>
+        <li><?= sprintf(__('Go to the "<a href="%s">Events</a>" tab and add the event you need.', WPNE), Url::to(['controller' => 'event'])) ?></li>
+        <li><?= __('Define the event properties, customize the message text (if necessary), and save the changes. Make sure to select the desired channel and check the box next to ‘Enabled”. That’s it!', WPNE) ?></li>
     </ol>
 
 </div>

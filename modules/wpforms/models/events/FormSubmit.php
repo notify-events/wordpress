@@ -24,7 +24,7 @@ class FormSubmit extends Event
      */
     public static function event_title()
     {
-        return __('Form Submit', WPNE);
+        return __('Form Submitted', WPNE);
     }
 
     public static function register()
@@ -92,8 +92,8 @@ class FormSubmit extends Event
      */
     public function __construct($post = null)
     {
-        $this->subject = __('Form "[form-name]" submit', WPNE);
-        $this->message = __("Form \"[form-name]\" submit\n\n[form-all-fields]", WPNE);
+        $this->subject = __('Form "[form-name]" submitted', WPNE);
+        $this->message = __("Form \"[form-name]\" submitted\n\n[form-all-fields]", WPNE);
 
         parent::__construct($post);
     }

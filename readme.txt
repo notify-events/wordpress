@@ -3,29 +3,29 @@ Contributors: notifyevents
 Tags: notification, woocommerce, contact form 7, wpforms, ninja forms, sms, voicecall, facebook messenger, vk, telegram, viber, slack
 Requires at least: 5.3
 Requires PHP: 5.6
-Tested up to: 5.5
+Tested up to: 5.7
 Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Notify.Events WordPress plugin - it's the ultimate way to get notifications by SMS, Voice calls and more than 20 popular messengers.
+Notify.Events WordPress plugin is the ultimate way to get notifications via SMS, Voice calls, Push-notifications, in Facebook Messenger, Viber, Telegram, and other 30+ popular messenger apps.
 
 == Description ==
 
-[Notify.Events](https://notify.events) WordPress plugin - it's the ultimate way to get notifications by **SMS**, **Voice calls**, **Facebook Messenger**, **Viber**, **Telegram**, **Push-notifications** and [more than 20 popular messengers](https://notify.events/features).
+[Notify.Events](https://notify.events) WordPress plugin is the ultimate way to get notifications via **SMS**, **Voice calls**, **Push-notifications**, in **Facebook Messenger**, **Viber**, **Telegram**, and other [30+ popular messenger apps](https://notify.events/features).
 
-You can handle various events by sending messages to yourself and your employees, which will allow you to always stay informed.
+Stay tuned by tracking various events on your website with real-time notifications. Improve work efficiency by distributing notifications among your team members.
 
 === Supported extensions and events ===
 
-[Notify.Events](https://notify.events) WordPress plugin supports main WordPress events and also events from some popular plugins such as **WooCommerce** and **Contact Form 7**. The full list of supported plugins and their events are listed below:
+The [Notify.Events](https://notify.events) plugin for WordPress supports core WordPress events, plus events from such popular plugins as **WooCommerce** and **Contact Form 7**. See the full list of supported solutions and events below:
 
 = WordPress =
 
 * Post
     * Post Added
     * Post Published
-    * Post sent for Review
+    * Post Sent for Review
     * Post Approved
 * Comment
     * Comment Added
@@ -47,38 +47,44 @@ You can handle various events by sending messages to yourself and your employees
 
 = Contact Form 7 =
 
-* Form Submit
+* Form Submitted
 
 = WPForms =
 
-* Form Submit
+* Form Submitted
 
 = Ninja Forms =
 
-* Form Submit
+* Form Submitted
 
-If you have not found support for the plugin or event you need, then just leave a request in the "[Support](https://wordpress.org/support/plugin/notify-events/)" section and we will try to help you.
+If you have not found the plugin or event you need in the list above, just leave a request in the "[Support](https://wordpress.org/support/plugin/notify-events/)" section and we will try to help you.
 
 === Features ===
 
-= Templating =
-Customize event message templates using predefined variables. You have a variables set for each plugin, depending on its settings.
-*For example: for Contact Form 7, your form fields will be available for you as a variables in message template editor.*
+= Message templating =
+Customize event message templates using predefined variables. There are specific variables set for each plugin, depending on its settings.
+*For example: for Contact Form 7, the form fields will be available to you as variables in the message template editor.*
 
-= Formatting the message =
-You can use simple text formatting to highlight key points for faster and better processing of messages.
+= Message formatting =
+Use simple text formatting to highlight key points for faster and better processing of messages.
+
+= Unlimited numbers of subscribers =
+Set up the distribution of messages among your team members by adding an unlimited number of subscribers. Share a special link to give certain people access to your channel.
 
 = Message prioritizing =
-Determine which messages will be delivered to certain recipient by priority. Focus only on the events you want.
+Determine what kind of notifications will be delivered to a specific recipient by setting priority. Focus only on the events that are really important for you.
 
-= Work time filter =
+= Working hours filter =
 Set up your channel to receive notifications during business hours.
 
-=== Costs and Limits ===
+=== Pricing and limitations ===
 
-The [Notify.Events](https://notify.events) service has a **free tariff**, which is enough to fully use the service with a small number of messages sent per month. For more information about tariff plans and limits, please visit [Pricing](https://notify.events/pricing) section.
+[Notify.Events](https://notify.events) has a **free plan** with a limited number of messages included per month. It is good to get acquainted with the service and even fully use it before the limit is reached. The plan is renewed each month. For more information about plans and limitations, please visit the [Pricing](https://notify.events/pricing) section.
 
 == Changelog ==
+
+= 1.2.2 =
+Description and text fixes.
 
 = 1.2.1 =
 Bugfixes.
@@ -127,6 +133,6 @@ No, sorry. The [Notify.Events](https://notify.events) is not designed for this k
 
 == Installation ==
 
-1. Install plugin "Notify.Events - Ultimate Notifications"
-2. Activate plugin through the **Plugins** screen (**Plugins > Installed Plugins**)
-3. Follow the "Configuration" instructions on the main plugin page
+1. Install the "Notify.Events - Ultimate Notifications" plugin
+2. Activate the plugin through the **Plugins** screen (**Plugins > Installed Plugins**)
+3. Go to the plugin **Settings** and follow the instructions in the "Configuration" section on the **About** tab
