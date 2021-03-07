@@ -4,7 +4,7 @@ Tags: notification, woocommerce, contact form 7, wpforms, ninja forms, sms, voic
 Requires at least: 5.3
 Requires PHP: 5.6
 Tested up to: 5.7
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
