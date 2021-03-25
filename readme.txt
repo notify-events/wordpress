@@ -57,7 +57,7 @@ The [Notify.Events](https://notify.events) plugin for WordPress supports core Wo
 
 * Form Submitted
 
-If you have not found the plugin or event you need in the list above, just leave a request in the "[Support](https://wordpress.org/support/plugin/notify-events/)" section and we will try to help you.
+If you have not found the plugin or event you need in the list above, just leave a request in the "[Support](https://wordpress.org/support/plugin/notify-events/)" section and we will try to solve the issue.
 
 === Features ===
 
@@ -68,7 +68,7 @@ Customize event message templates using predefined variables. There are specific
 = Message formatting =
 Use simple text formatting to highlight key points for faster and better processing of messages.
 
-= Unlimited numbers of subscribers =
+= Unlimited number of subscribers =
 Set up the distribution of messages among your team members by adding an unlimited number of subscribers. Share a special link to give certain people access to your channel.
 
 = Message prioritizing =
@@ -78,7 +78,6 @@ Determine what kind of notifications will be delivered to a specific recipient b
 Set up your channel to receive notifications during business hours.
 
 === Pricing and limitations ===
-
 [Notify.Events](https://notify.events) has a **free plan** with a limited number of messages included per month. It is good to get acquainted with the service and even fully use it before the limit is reached. The plan is renewed each month. For more information about plans and limitations, please visit the [Pricing](https://notify.events/pricing) section.
 
 == Changelog ==
@@ -102,34 +101,34 @@ Adding the ability to specify multiple receiver channels for an event.
 = 1.0.0 =
 Initial version.
 
-== Frequently Asked Questions ==
+== FAQs ==
 
 = What notification methods do you support? =
-At the moment, we already have more than 30 notification methods, including SMS, Voice calls, Facebook Messenger, Telegram and many others. You can find a complete list of supported notification methods on the [features](https://notify.events/features) page.
+At the moment, we already have more than 30 notification methods, including SMS, Voice calls, Facebook Messenger, Telegram, Slack, and many others. You can find a complete list of supported notification methods on the [features](https://notify.events/features) page.
 
-= What is the cost of sending messages? =
-The [Notify.Events](https://notify.events) service has a free tariff, which is enough to fully use the service with a small number of messages sent per month. For more information about tariff plans and limits, please visit [Pricing](https://notify.events/pricing) section.
+= How much does it cost to send messages? =
+The [Notify.Events](https://notify.events) service has a free plan with a limited number of messages included per month. It is good to get acquainted with the service and even fully use it before the limit is reached. For more information about plans and limitations, please visit the [Pricing](https://notify.events/pricing) section.
 
 = What happens after I run out of free messages? =
-Free messages are refreshing every 30 days, so you can continue sending when it refilled. And also you can always top up your balance and pay for messages even without connecting to any tariff. See the [pricing](https://notify.events/pricing) page for details.
+The plan is renewed every 30 days. Thus, you can continue receiving free messages once they are refilled. Moreover, you can always top up your balance and pay for messages in excess of the plan. See the [Pricing](https://notify.events/pricing) page for more details.
 
-= Do all recipients have to sign up to Notify.Events to start receiving messages? =
-No, you can share a link which all your recipients could use to subscribe to the notification channel. They will also be able to choose the most convenient method to receive messages.
+= Do all recipients have to sign up for Notify.Events to start receiving messages? =
+No, you can invite your team members to subscribe to the notification channel without registering using a dedicated link. They will also be able to choose the most convenient way to receive messages.
 
-= Will I be able to send a message to several people at the same time? =
-Yes, when WordPress send a message to your channel, it will be sent to all channel's subscribers automatically.
+= Can I set up sending messages to several people at the same time? =
+Yes, when WordPress sends a message to your channel, it will be received by all channel's subscribers automatically.
 
 = Is there any limit on the number of recipients? =
-No, you can give the opportunity to subscribe to your channel for an unlimited number of people.
+No, an unlimited number of people can subscribe to your channel.
 
-= Can I separate different kind of messages between my recipients? =
-Yes, for this you can group your recipients in different channels, as well as filter messages by priority or receiving time for each specific subscriber in a channel.
+= Can I distribute messages between recipients depending on the type? =
+Yes, for this you can group your recipients in different channels, as well as filter messages by priority or time of receipt for each specific subscriber in the channel.
 
-= Is there any limit on the number of sent messages? =
-You are limited only in the number of incoming messages within your [tariff](https://notify.events/pricing).
+= Is there any limit on the number of messages sent? =
+You are limited only in the number of incoming messages within your [plan](https://notify.events/pricing).
 
 = Can I make broadcast mailings using the plugin? =
-No, sorry. The [Notify.Events](https://notify.events) is not designed for this kind of service. No advertising broadcasts 😉
+No, sorry. [Notify.Events](https://notify.events) is not designed for this kind of service. No advertising broadcasts 😉
 
 == Installation ==
 
