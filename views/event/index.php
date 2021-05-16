@@ -37,6 +37,9 @@ use notify_events\models\View;
         width: 30%;
         margin: 2px;
     }
+    .contact_us {
+        margin-top: 20px;
+    }
 </style>
 
 <div id="notify-events-events">
@@ -72,6 +75,9 @@ use notify_events\models\View;
                     </div>
                 </div>
             <?php } ?>
+            <div class="contact_us">
+                <?= __('Can\'t find some event type or integration? Please <a href="https://notify.events/en/contacts" target="_blank">contact us</a>.', WPNE) ?>
+            </div>
         </div>
     </div>
 

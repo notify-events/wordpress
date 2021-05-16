@@ -96,19 +96,12 @@ use notify_events\modules\wpforms\models\events\FormSubmit;
             <?= $this->render('form/channel', [
                 'event' => $event,
             ], false) ?>
-            <tr class="wpne-form-group <?= $event->has_error('form_id') ? 'wpne-has-error' : '' ?>">
-                <th scope="row"><?= __('Form', WPNE) ?></th>
-                <td>
-                    <select name="form[form_id]" id="wpne_form_id">
-                        <?php foreach ($event->form_list() as $id => $title) { ?>
-                            <option value="<?= esc_attr($id) ?>" <?= ($event->form_id == $id) ? 'selected' : '' ?>><?= esc_html($title) ?></option>
-                        <?php } ?>
-                    </select>
-                    <?php if ($event->has_error('form_id')) { ?>
-                        <div class="wpne-error"><?= esc_html($event->get_error('form_id')) ?></div>
-                    <?php } ?>
-                </td>
-            </tr>
+            <?= $this->render('form/_select', [
+                'model' => $event,
+                'title' => __('Form', WPNE),
+                'field' => 'form_id',
+                'items' => $event::form_list(),
+            ], false) ?>
             <?= $this->render('form/subject', [
                 'event' => $event,
             ], false) ?>

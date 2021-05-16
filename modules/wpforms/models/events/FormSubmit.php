@@ -83,6 +83,7 @@ class FormSubmit extends Event
             'form_id' => [
                 ['required'],
                 ['int'],
+                ['in', 'range' => array_keys(self::form_list())],
             ],
         ]);
     }

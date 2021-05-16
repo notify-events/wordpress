@@ -7,6 +7,7 @@ use notify_events\modules\wordpress\models\events\comment\CommentAdded;
 use notify_events\modules\wordpress\models\events\other\EMailSend;
 use notify_events\modules\wordpress\models\events\post\PostAdded;
 use notify_events\modules\wordpress\models\events\post\PostApproved;
+use notify_events\modules\wordpress\models\events\post\PostCustom;
 use notify_events\modules\wordpress\models\events\post\PostPending;
 use notify_events\modules\wordpress\models\events\post\PostPublished;
 use notify_events\modules\wordpress\models\events\user\UserLogin;
@@ -61,6 +62,7 @@ class WordPress extends Module
                 PostPublished::class,
                 PostPending::class,
                 PostApproved::class,
+                PostCustom::class,
             ],
             __('Comment', WPNE) => [
                 CommentAdded::class,

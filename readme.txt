@@ -4,7 +4,7 @@ Tags: notification, woocommerce, contact form 7, wpforms, ninja forms, sms, voic
 Requires at least: 5.3
 Requires PHP: 5.6
 Tested up to: 5.7
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,7 @@ The [Notify.Events](https://notify.events) plugin for WordPress supports core Wo
     * Post Published
     * Post Sent for Review
     * Post Approved
+    * Post Custom Event
 * Comment
     * Comment Added
 * User
@@ -37,7 +38,7 @@ The [Notify.Events](https://notify.events) plugin for WordPress supports core Wo
 
 = WooCommerce =
 
-* Order:
+* Order
     * New Order
     * Order Status Change
 * Product
@@ -81,6 +82,9 @@ Set up your channel to receive notifications during business hours.
 [Notify.Events](https://notify.events) has a **free plan** with a limited number of messages included per month. It is good to get acquainted with the service and even fully use it before the limit is reached. The plan is renewed each month. For more information about plans and limitations, please visit the [Pricing](https://notify.events/pricing) section.
 
 == Changelog ==
+
+= 1.3.0 =
+Adding post custom event support.
 
 = 1.2.2 =
 Description and text fixes.
