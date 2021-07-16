@@ -3,7 +3,7 @@ Contributors: notifyevents
 Tags: notification, woocommerce, contact form 7, wpforms, ninja forms, sms, voicecall, facebook messenger, vk, telegram, viber, slack
 Requires at least: 5.3
 Requires PHP: 5.6
-Tested up to: 5.7
+Tested up to: 5.8
 Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
