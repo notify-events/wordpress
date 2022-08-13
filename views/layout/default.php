@@ -14,8 +14,13 @@ use notify_events\helpers\Html;
 use notify_events\models\Alert;
 use notify_events\models\Controller;
 use notify_events\models\View;
+use notify_events\php\Message;
 
 add_thickbox();
+
+if (!Message::capabilityCheck()) {
+	Alert::success(__('Your server configuration does not meet the requirements. Make sure you have the allow_url_fopen directive or cURL support enabled!', WPNE));
+}
 
 ?>
 
