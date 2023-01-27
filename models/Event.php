@@ -294,7 +294,7 @@ abstract class Event extends PostModel implements EventInterface
     {
         if (preg_match_all('#\[([a-z0-9-]*)\]#i', $value, $matches) !== false) {
             $tags = static::tag_labels();
-            $tags = call_user_func_array('array_merge', $tags);
+            $tags = call_user_func_array('array_merge', array_values($tags));
             $tags = array_keys($tags);
 
             $used_tags    = array_unique($matches[1]);

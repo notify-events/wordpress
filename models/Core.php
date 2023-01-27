@@ -104,26 +104,27 @@ class Core
         return $links;
     }
 
+	protected static function get_route_param($name, $default)
+	{
+		if (!array_key_exists($name, $_GET)) {
+			return $default;
+		}
+
+		if (!is_string($_GET[$name])) {
+			return $default;
+		}
+
+		return sanitize_key($_GET[$name]);
+	}
+
     /**
      *
      */
     public function route()
     {
-        $module_name     = sanitize_key($_GET['module']);
-        $controller_name = sanitize_key($_GET['controller']);
-        $action_name     = sanitize_key($_GET['action']);
-
-        if (empty($module_name)) {
-            $module_name = 'notify_events';
-        }
-
-        if (empty($controller_name)) {
-            $controller_name = 'about';
-        }
-
-        if (empty($action_name)) {
-            $action_name = 'index';
-        }
+        $module_name     = static::get_route_param('module', 'notify_events');
+	    $controller_name = static::get_route_param('controller', 'about');
+	    $action_name     = static::get_route_param('action', 'index');
 
         $controller_name = Inflector::class_from_id($controller_name);
 

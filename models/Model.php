@@ -192,7 +192,7 @@ abstract class Model implements ModelInterface
      */
     protected function rule_required($attribute, $value, $params)
     {
-        if (($value === null) || (trim((string)$value) === '')) {
+        if (empty($value) || (is_string($value) && trim($value) === '')) {
             $message = array_key_exists('message', $params) ? $params['message'] : __('Field required', WPNE);
 
             $this->add_error($attribute, $message);
