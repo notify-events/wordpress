@@ -5,23 +5,94 @@ namespace notify_events\models;
 /**
  * Class Alert
  * @package notify_events\models
+ *
+ * @property int    $id
+ * @property string $type
+ * @property string $title
  */
-class Alert
+class Alert extends PostModel
 {
+    const TYPE_ERROR = 'error';
+    const TYPE_WARNING = 'warning';
+    const TYPE_SUCCESS = 'success';
+    const TYPE_INFO = 'info';
+
+    const TYPES = [
+        self::TYPE_ERROR,
+        self::TYPE_WARNING,
+        self::TYPE_SUCCESS,
+        self::TYPE_INFO,
+    ];
+
+    /**
+     * @inheritDoc
+     */
+    public static function post_type()
+    {
+        return 'wpne_alert';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function fields()
+    {
+        return array_merge(parent::fields(), [
+            'type',
+        ]);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function field_assign()
+    {
+        return array_merge(parent::field_assign(), [
+            'type' => 'post_content',
+        ]);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public static function rules()
+    {
+        return array_merge(parent::rules(), [
+            'type' => [
+                ['required'],
+                ['strip_tags'],
+                ['trim'],
+                ['in', 'range' => self::TYPES],
+            ],
+        ]);
+    }
+
     /**
      *
      */
     public static function display()
     {
-        if (!array_key_exists('_wpne_alert', $_SESSION)) {
-            return;
+        $alerts = self::find();
+
+        foreach ($alerts as $alert) {
+            echo sprintf('<div class="notice notice-%s is-dismissible"><p>%s</p></div>', esc_attr($alert->type), esc_html($alert->title));
+
+            $alert->delete();
         }
+    }
 
-        $alert = $_SESSION['_wpne_alert'];
+    /**
+     * @param $type
+     * @param $message
+     * @return void
+     */
+    protected static function alert($type, $message)
+    {
+        $alert = new self();
+        $alert->type  = $type;
+        $alert->title = $message;
 
-        unset($_SESSION['_wpne_alert']);
-
-        echo sprintf('<div class="notice notice-%s is-dismissible"><p>%s</p></div>', esc_attr($alert['type']), esc_html($alert['message']));
+        $alert->save();
     }
 
     /**
@@ -29,10 +100,7 @@ class Alert
      */
     public static function error($message)
     {
-        $_SESSION['_wpne_alert'] = [
-            'type'    => 'error',
-            'message' => $message,
-        ];
+        self::alert(self::TYPE_ERROR, $message);
     }
 
     /**
@@ -40,10 +108,7 @@ class Alert
      */
     public static function warning($message)
     {
-        $_SESSION['_wpne_alert'] = [
-            'type'    => 'warning',
-            'message' => $message,
-        ];
+        self::alert(self::TYPE_WARNING, $message);
     }
 
     /**
@@ -51,10 +116,7 @@ class Alert
      */
     public static function success($message)
     {
-        $_SESSION['_wpne_alert'] = [
-            'type'    => 'success',
-            'message' => $message,
-        ];
+        self::alert(self::TYPE_SUCCESS, $message);
     }
 
     /**
@@ -62,9 +124,6 @@ class Alert
      */
     public static function info($message)
     {
-        $_SESSION['_wpne_alert'] = [
-            'type'    => 'info',
-            'message' => $message,
-        ];
+        self::alert(self::TYPE_INFO, $message);
     }
 }

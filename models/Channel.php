@@ -4,7 +4,7 @@ namespace notify_events\models;
 
 /**
  * Class Channel
- * @package notify_events
+ * @package notify_events\models
  *
  * @property int    $id
  * @property string $title

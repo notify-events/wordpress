@@ -34,21 +34,21 @@ class Core
      */
     public function __construct()
     {
-        if (!session_id()) {
-            session_start();
-        }
-
         if (is_admin()) {
             require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+            add_action('init', function() {
+                ob_start();
+            });
 
             add_filter('plugin_action_links', [$this, 'plugin_action_links'], 10, 2);
             add_filter('plugin_row_meta', [$this, 'register_plugin_links'], 10, 2);
 
             add_action('admin_menu', function() {
-                ob_start();
-
                 add_options_page(__('Notify.Events', WPNE), __('Notify.Events', WPNE), 'manage_options', WPNE, [$this, 'route']);
             });
+
+            Alert::register_post_type();
         }
 
         Channel::register_post_type();

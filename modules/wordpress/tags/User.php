@@ -34,6 +34,10 @@ class User
      */
     public static function values($user, $prefix = 'user-')
     {
+        if (!$user) {
+            return [];
+        }
+
         return [
             $prefix . 'id'         => $user->ID,
             $prefix . 'login'      => $user->user_login,

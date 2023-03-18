@@ -33,16 +33,33 @@ class Post
      */
     public static function values($post)
     {
-        return [
+        $result = [
             'post-id'        => $post->ID,
-            'post-type'      => get_post_type_object($post->post_type)->label,
-            'post-status'    => get_post_status_object($post->post_status)->label,
             'post-title'     => $post->post_title,
             'post-permalink' => get_post_permalink($post),
-            'post-category'  => get_category($post->post_category)->name,
             'post-excerpt'   => $post->post_excerpt,
             'post-date'      => $post->post_date,
         ];
+
+        $post_type_object = get_post_type_object($post->post_type);
+
+        if ($post_type_object) {
+            $result['post-type'] = $post_type_object->label;
+        }
+
+        $post_status_object = get_post_status_object($post->post_status);
+
+        if ($post_status_object) {
+            $result['post-status'] = $post_status_object->label;
+        }
+
+        $category = isset($post->post_category[0]) ? get_category($post->post_category[0]) : null;
+
+        if ($category) {
+            $result['post-category'] = $category->name;
+        }
+
+        return $result;
     }
 
     /**
