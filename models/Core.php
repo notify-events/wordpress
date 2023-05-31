@@ -159,7 +159,7 @@ class Core
             /** @var Module $module_a */
             /** @var Module $module_b */
 
-            return $module_a::module_order() > $module_b::module_order();
+            return ($module_a::module_order() > $module_b::module_order()) ? 1 : -1;
         });
 
         return $modules;
@@ -172,7 +172,7 @@ class Core
     public function module_get($module_name)
     {
         if (!array_key_exists($module_name, $this->_modules)) {
-            wp_die(__('Can\'t find %s module'), $module_name);
+            wp_die(__('Can\'t find module: ') . $module_name);
         }
 
         return $this->_modules[$module_name];

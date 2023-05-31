@@ -1,34 +1,33 @@
 <?php
 
-namespace notify_events\modules\wordpress\models\events\post;
+namespace notify_events\modules\woocommerce\models\events\product;
 
 use ErrorException;
-use notify_events\modules\wordpress\models\Event;
+use notify_events\modules\woocommerce\tags\Product;
+use notify_events\modules\woocommerce\models\Event;
 use notify_events\modules\wordpress\tags\Common;
-use notify_events\modules\wordpress\tags\Post;
 use notify_events\modules\wordpress\tags\User;
 use WP_Post;
 
 /**
- * Class PostCustom
- * @package notify_events\modules\wordpress\models\events\post
+ * Class ProductCustom
+ * @package notify_events\modules\woocommerce\models\events\product
  *
  * @property int    $id
  * @property string $title
  * @property int    $channel_id
- * @property string $post_type
  * @property bool   $post_is_status_changed
- * @property string $post_old_status
+ * @property bool   $post_old_status
  * @property string $post_status
  */
-class PostCustom extends Event
+class ProductCustom extends Event
 {
     /**
      * @inheritDoc
      */
     public static function event_title()
     {
-        return __('Post Custom Event', WPNE);
+        return __('Product Custom Event', WPNE);
     }
 
     public static function register()
@@ -44,11 +43,17 @@ class PostCustom extends Event
      */
     public static function handle($new_status, $old_status, $post)
     {
+        if ($post->post_type != 'product') {
+            return;
+        }
+
         $author = get_userdata($post->post_author);
         $editor = get_userdata(get_post_meta($post->ID, '_edit_last', true));
 
+        $product = wc_get_product($post);
+
         $tags = array_merge(
-            Post::values($post),
+            Product::values($product),
             User::values($author, 'author-'),
             User::values($editor, 'editor-'),
             Common::values()
@@ -57,22 +62,17 @@ class PostCustom extends Event
         static::execute($tags, [
             'meta_query' => [
                 [
-                    'key'     => '_wpne_post_type',
-                    'value'   => serialize($post->post_type),
-                    'compare' => 'LIKE'
-                ],
-                [
                     'key'     => '_wpne_post_is_status_changed',
                     'value'   => (int)($old_status != $new_status),
                 ],
                 [
                     'key'     => '_wpne_post_old_status',
-                    'value'   => serialize($old_status),
-                    'compare' => 'LIKE'
+                    'value'   => serialize($post->post_old_status),
+                    'compare' => 'LIKE',
                 ],
                 [
                     'key'     => '_wpne_post_status',
-                    'value'   => serialize($new_status),
+                    'value'   => serialize($post->post_status),
                     'compare' => 'LIKE'
                 ],
             ],
@@ -93,7 +93,6 @@ class PostCustom extends Event
     public static function fields()
     {
         return array_merge(parent::fields(), [
-            'post_type',
             'post_is_status_changed',
             'post_old_status',
             'post_status',
@@ -106,12 +105,6 @@ class PostCustom extends Event
     public static function rules()
     {
         return array_merge(parent::rules(), [
-            'post_type' => [
-                ['each', 'rules' => [
-                    ['string'],
-                    ['in', 'range' => array_keys(self::post_type_list())],
-                ]],
-            ],
             'post_is_status_changed' => [
                 ['boolean'],
             ],
@@ -136,7 +129,7 @@ class PostCustom extends Event
     public function tag_labels()
     {
         return array_merge_recursive([
-            __('Post', WPNE)        => Post::labels(),
+            __('Product', WPNE)     => Product::labels(),
             __('Author', WPNE)      => User::labels('author-'),
             __('Last Editor', WPNE) => User::labels('editor-'),
         ], parent::tag_labels());
@@ -148,21 +141,11 @@ class PostCustom extends Event
     public function tag_preview()
     {
         return array_merge(
-            Post::preview(),
+            Product::preview(),
             User::preview('author-'),
             User::preview('editor-'),
             parent::tag_preview()
         );
-    }
-
-    /**
-     * @return string[]|array
-     */
-    public static function post_type_list()
-    {
-        return get_post_types([
-            'public' => true,
-        ]);
     }
 
     /**

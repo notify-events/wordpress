@@ -341,7 +341,7 @@ abstract class Model implements ModelInterface
      */
     protected function rule_each($attribute, $value, array $params)
     {
-        if (!is_array($value)) {
+        if (!is_array($value) && !empty($value)) {
             $message = array_key_exists('message', $params) ? $params['message'] : __('Value must be array', WPNE);
 
             $this->add_error($attribute, $message);

@@ -8,6 +8,11 @@ use notify_events\modules\woocommerce\models\events\order\OrderStatusChange;
 use notify_events\modules\woocommerce\models\events\product\LowStock;
 use notify_events\modules\woocommerce\models\events\product\NoStock;
 use notify_events\modules\woocommerce\models\events\product\OnBackorder;
+use notify_events\modules\woocommerce\models\events\product\ProductAdded;
+use notify_events\modules\woocommerce\models\events\product\ProductApproved;
+use notify_events\modules\woocommerce\models\events\product\ProductCustom;
+use notify_events\modules\woocommerce\models\events\product\ProductPending;
+use notify_events\modules\woocommerce\models\events\product\ProductPublished;
 
 /**
  * Class WooCommerce
@@ -58,9 +63,16 @@ class WooCommerce extends Module
                 OrderStatusChange::class,
             ],
             __('Product', WPNE) => [
+                ProductAdded::class,
+                ProductPublished::class,
+                ProductPending::class,
+                ProductApproved::class,
+                ProductCustom::class,
+                OnBackorder::class,
+            ],
+            __('Stock', WPNE) => [
                 LowStock::class,
                 NoStock::class,
-                OnBackorder::class,
             ],
         ];
     }

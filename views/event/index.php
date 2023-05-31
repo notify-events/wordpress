@@ -14,7 +14,7 @@ use notify_events\models\View;
 
 ?>
 
-<style type="text/css">
+<style>
     .column-enabled {
         width: 10%;
     }
@@ -33,9 +33,13 @@ use notify_events\models\View;
         display: flex;
         flex-wrap: wrap;
     }
-    .event-list .button {
-        width: 30%;
-        margin: 2px;
+    .event-list .event-list-item {
+        width: 33.33%;
+        padding: 2px;
+        box-sizing: border-box;
+    }
+    .event-list .event-list-item .button {
+        width: 100%;
     }
     .contact_us {
         margin-top: 20px;
@@ -48,7 +52,7 @@ use notify_events\models\View;
 
     <?php $events->display() ?>
 
-    <div id="wpne-event-create" class="wpne-modal-form" data-title="<?= esc_attr(__('Select event type', WPNE)) ?>" data-width="500" data-height="400">
+    <div id="wpne-event-create" class="wpne-modal-form" data-title="<?= esc_attr(__('Select event type', WPNE)) ?>" data-width="650" data-height="400">
         <div class="module-list">
             <?php foreach ($modules as $module) { ?>
                 <div>
@@ -61,13 +65,15 @@ use notify_events\models\View;
 
                                 <div class="event-list">
                                     <?php foreach ($events as $event) { ?>
-                                        <?= Html::a($event::event_title(), [
-                                            'controller' => 'event',
-                                            'action'     => 'create',
-                                            'event'      => rawurlencode($event),
-                                        ], [
-                                            'class' => 'button',
-                                        ]) ?>
+                                        <div class="event-list-item">
+                                            <?= Html::a($event::event_title(), [
+                                                'controller' => 'event',
+                                                'action'     => 'create',
+                                                'event'      => rawurlencode($event),
+                                            ], [
+                                                'class' => 'button',
+                                            ]) ?>
+                                        </div>
                                     <?php } ?>
                                 </div>
                             </div>

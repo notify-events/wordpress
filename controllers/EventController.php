@@ -35,7 +35,7 @@ class EventController extends Controller
      */
     public function action_create()
     {
-        /** @var Event $event_class */
+        /** @var Event|string $event_class */
         $event_class = wp_unslash($_GET['event']);
 
         if (!is_subclass_of($event_class, Event::class)) {
