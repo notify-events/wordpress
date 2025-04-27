@@ -3,8 +3,8 @@ Contributors: notifyevents
 Tags: notification, woocommerce, contact form 7, wpforms, ninja forms, sms, voicecall, facebook messenger, vk, telegram, viber, slack
 Requires at least: 5.3
 Requires PHP: 5.6
-Tested up to: 6.2.1
-Stable tag: 1.4.0
+Tested up to: 6.8
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,9 @@ Set up your channel to receive notifications during business hours.
 [Notify.Events](https://notify.events) has a **free plan** with a limited number of messages included per month. It is good to get acquainted with the service and even fully use it before the limit is reached. The plan is renewed each month. For more information about plans and limitations, please visit the [Pricing](https://notify.events/pricing) section.
 
 == Changelog ==
+
+= 1.4.1 =
+Compatibility for WordPress 6.7. Update dependencies.
 
 = 1.4.0 =
 Adding WooCommerce product manipulation event support.
