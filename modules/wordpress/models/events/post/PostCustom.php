@@ -62,8 +62,12 @@ class PostCustom extends Event
                     'compare' => 'LIKE'
                 ],
                 [
+                    // Пустая строка означает «любое значение» (чекбокс снят).
+                    // Используем IN, чтобы событие срабатывало как при '' (любое),
+                    // так и при точном совпадении с фактическим состоянием.
                     'key'     => '_wpne_post_is_status_changed',
-                    'value'   => (int)($old_status != $new_status),
+                    'value'   => ['', (string)(int)($old_status != $new_status)],
+                    'compare' => 'IN',
                 ],
                 [
                     'key'     => '_wpne_post_old_status',

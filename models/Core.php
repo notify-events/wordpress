@@ -32,7 +32,7 @@ class Core
 	/**
 	 * Core constructor.
 	 */
-	public function __construct()
+	protected function __construct()
 	{
 		if (is_admin()) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -51,14 +51,14 @@ class Core
 			});
 		}
 
-		do_action('wpne_init');
-
 		add_action('init', function () {
 			Channel::register_post_type();
 			Event::register_post_type();
 
 			do_action('wpne_module_init');
 		});
+
+		do_action('wpne_init');
 	}
 
 	/**
