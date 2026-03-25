@@ -25,22 +25,25 @@ class ProductAdded extends Event
 
     public static function register()
     {
-        add_action('wp_insert_post', static::class . '::handle', 10, 3);
+        // transition_post_status позволяет точно определить первое ручное сохранение:
+        // - auto-draft → draft: WP 3.6+, открытие редактора создаёт auto-draft, пользователь сохраняет черновик
+        // - new → draft: WP < 3.6, продукт создаётся только в момент первого сохранения
+        add_action('transition_post_status', static::class . '::handle', 10, 3);
     }
 
     /**
-     * @param int     $post_id
+     * @param string  $new_status
+     * @param string  $old_status
      * @param WP_Post $post
-     * @param bool    $update
      * @throws ErrorException
      */
-    public static function handle($post_id, $post, $update)
+    public static function handle($new_status, $old_status, $post)
     {
-        if ($update) {
+        if ($new_status !== 'draft' || !in_array($old_status, ['auto-draft', 'new'], true)) {
             return;
         }
 
-        if ($post->post_type != 'product') {
+        if ($post->post_type !== 'product') {
             return;
         }
 

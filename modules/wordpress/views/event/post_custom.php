@@ -37,7 +37,7 @@ use notify_events\modules\wordpress\models\events\post\PostCustom;
             ], false) ?>
             <?= $this->render('form/_multi_select', [
                 'model' => $event,
-                'title' => __('Post Type', WPNE),
+                'title' => __('Type', WPNE),
                 'field' => 'post_type',
                 'items' => $event::post_type_list(),
             ], false) ?>
@@ -48,7 +48,7 @@ use notify_events\modules\wordpress\models\events\post\PostCustom;
             ], false) ?>
             <?= $this->render('form/_multi_select', [
                 'model' => $event,
-                'title' => __('Old Type', WPNE),
+                'title' => __('Old Status', WPNE),
                 'field' => 'post_old_status',
                 'items' => $event::post_status_list(),
             ], false) ?>

@@ -28,6 +28,20 @@ class NewOrder extends Event
     public static function register()
     {
         add_action('woocommerce_checkout_order_processed', static::class . '::handle', 10, 3);
+        // Блочный чекаут (WooCommerce 8.3+) передаёт только объект заказа
+        add_action('woocommerce_store_api_checkout_order_processed', static::class . '::handle_block', 10, 1);
+    }
+
+    /**
+     * Обработчик для блочного чекаута (Gutenberg block checkout).
+     * Хук woocommerce_store_api_checkout_order_processed передаёт только $order.
+     *
+     * @param WC_Order $order
+     * @throws ErrorException
+     */
+    public static function handle_block($order)
+    {
+        static::handle($order->get_id(), [], $order);
     }
 
     /**
